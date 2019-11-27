@@ -23,7 +23,17 @@ export default class SideMenu extends LitElement {
         const { color, background, fontWeight } = this;
         return html`
 <style>
-
+        #side-menu{
+            width: 220px;
+            background: #323759;
+            
+            
+        }
+        #side-menu nav a{
+            color: #ccced7;
+            text-decoration: none;
+            text-transform: uppercase;    
+        }
 </style>
 
 <section id="side-menu">
