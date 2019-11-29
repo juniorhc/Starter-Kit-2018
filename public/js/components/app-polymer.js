@@ -25,6 +25,10 @@ class CounterComp extends LitElement {
         const { color, background, fontWeight } = this;
         return html`
 <style>
+        .main-page{
+            display: grid;
+            grid-template-columns: 250px 1fr;
+        }
 </style>
 
 <div class="main-page">

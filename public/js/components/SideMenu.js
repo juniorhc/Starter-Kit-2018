@@ -24,15 +24,19 @@ export default class SideMenu extends LitElement {
         return html`
 <style>
         #side-menu{
-            width: 220px;
             background: #323759;
-            
-            
+            height: 100vh;
+            padding: 0 25px;
         }
         #side-menu nav a{
             color: #ccced7;
             text-decoration: none;
-            text-transform: uppercase;    
+            text-transform: capitalize;
+            display: block;    
+            padding: 10px;
+        }
+        #side-menu nav a span.icon{
+            padding: 10px;
         }
 </style>
 
@@ -41,10 +45,10 @@ export default class SideMenu extends LitElement {
     <div class="menu">
     <div class="title"> Contacts </div>
     <nav>
-        <a href="#"> Add Contact </a>
-        <a href="#"> Add Contact </a>
-        <a href="#"> Add Contact </a>
-        <a href="#"> Add Contact </a>
+        <a href="#"><span class="icon"> + </span> Add Contact </a>
+        <a href="#"><span class="icon"> + </span> Add Contact </a>
+        <a href="#"><span class="icon"> + </span> Add Contact </a>
+        <a href="#"><span class="icon"> + </span> Add Contact </a>
     </nav>
     </div>
 </section>
