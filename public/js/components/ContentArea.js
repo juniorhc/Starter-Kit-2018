@@ -24,7 +24,10 @@ export default class ContentArea extends LitElement {
         const { color, background, fontWeight } = this;
         return html`
 <style>
-
+        #content-area{
+            background: #fcfdff;
+            padding: 50px 80px;
+        }
 </style>
 <section id="content-area">
         <contacts-list>
