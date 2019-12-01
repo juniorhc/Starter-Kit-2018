@@ -79,7 +79,7 @@ export default class ContactsList extends LitElement {
             
         }
 </style>
-    <section id="contacts">
+    <section class="contacts">
         <h2>Contacts</h2>
         <div class="contact"> 
             <div class="user-img"></div>
