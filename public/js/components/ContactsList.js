@@ -23,6 +23,7 @@ export default class ContactsList extends LitElement {
         const { color, background, fontWeight } = this;
         return html`
 <style>
+        @import '/css/global.css';
         .contacts{
             max-width: 800px;
         }

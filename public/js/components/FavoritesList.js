@@ -22,6 +22,7 @@ export default class FavoritesList extends LitElement {
         const { color, background, fontWeight } = this;
         return html`
 <style>
+        @import '/css/global.css';
         .favorites{
             max-width: 800px;
             display: grid;

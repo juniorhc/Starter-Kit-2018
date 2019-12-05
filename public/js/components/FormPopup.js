@@ -27,10 +27,6 @@ export default class FormPopup extends LitElement {
         return html`
         <style>
             @import '/css/global.css';
-
-            *{
-                box-sizing: border-box;
-            }
             .form-popup{
                 background: #2b304c;
                 height: 100vh;
@@ -41,9 +37,17 @@ export default class FormPopup extends LitElement {
                 display: flex;
                 justify-content: center;
                 align-items: center;
+                z-index: 2;
+                visibility: hidden;
+                transition: all .4s ease-in-out;
+                opacity: 0;
+            }
+            .form-popup.active{
+                visibility: visible;
+                opacity: 1;
             }
             form{
-                width: 600px;
+                width: 400px;
                 background: white;
                 padding: 20px;
                 border-radius: 10px;
@@ -58,12 +62,13 @@ export default class FormPopup extends LitElement {
             }
             .form-group{
                 padding: 0;
+                position: relative;
             }
             label{
                 font-size: .7rem;
                 background: white;
-                position: relative;
-                top:10px;
+                position: absolute;
+                top: -5px;
                 display: inline-block;
                 
             }
@@ -72,7 +77,7 @@ export default class FormPopup extends LitElement {
                 display: block;
                 width: 100%;
             }
-            .first_name{
+            .first-name{
                 grid-column: 1/3;
             }
             .last-name{
@@ -84,10 +89,47 @@ export default class FormPopup extends LitElement {
             .address-2{
                 grid-column: 1/5;
             }
+            .city{
+                grid-column: 1/3;
+            }
+            .button{
+                justify-self: end;
+                grid-column: 4/5;
+            }
+            .button button{
+                cursor: pointer;
+                padding: 10px 25px;
+                background: rgb(2,0,36);
+                background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(61,61,212,1) 61%, rgba(0,212,255,1) 100%);
+                border: 1px solid rgba(0, 0, 0, .1);
+                color: white;
+                border-radius: 5px;
+                text-shadow: 4px 4px 2px rgba(0, 0, 0, 1);
+            }
+            .closing-btn{
+                position: absolute;
+                z-index:3;
+                right: 20px;
+                top: 0;
+                font-size: 2rem;
+                color: red;
+                padding: 20px;
+            }
+            .closing-btn svg{
+                width: 24px;
+                height: 24px;
+                fill: white;
+            }
         </style>
-        <section class="form-popup">
+        <section class="form-popup active">
             <form>
+
+                <div class="closing-btn">
+                    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="times" class="svg-inline--fa fa-times fa-w-11" role="img" viewBox="0 0 352 512"><path fill="currentColor" d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"/></svg>
+                </div>
+
                 <h2>Add a new contact</h2>
+
                 <div class="form-group first-name">
                     <label for="first_name">First Name</label>
                     <input type="text" name="first_name">

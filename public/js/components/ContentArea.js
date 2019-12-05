@@ -26,6 +26,7 @@ export default class ContentArea extends LitElement {
         const { color, background, fontWeight } = this;
         return html`
         <style>
+            @import '/css/global.css';
             #content-area{
                 background: #fcfdff;
                 padding: 50px 80px;

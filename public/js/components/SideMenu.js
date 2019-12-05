@@ -23,6 +23,7 @@ export default class SideMenu extends LitElement {
         const { color, background, fontWeight } = this;
         return html`
 <style>
+        @import '/css/global.css';
         #side-menu{
             background: #323759;
             height: 100vh;
