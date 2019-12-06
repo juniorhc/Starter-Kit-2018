@@ -10,7 +10,7 @@ export default class SideMenu extends LitElement {
 
     static get properties() {
         return {
-            total: Object
+            addContactClick: Function
         }
     }
 
@@ -20,7 +20,6 @@ export default class SideMenu extends LitElement {
     }
 
     render() {
-        const { color, background, fontWeight } = this;
         return html`
 <style>
         @import '/css/global.css';
@@ -60,7 +59,7 @@ export default class SideMenu extends LitElement {
     <div class="menu">
     <div class="title"> Contacts </div>
     <nav>
-        <a href="#"><span class="icon"> + </span> Add Contact </a>
+        <a href="#" @click="${this.addContactClick}"><span class="icon"> + </span> Add Contact </a>
         <a href="#"><span class="icon"> + </span> Add Contact </a>
         <a href="#"><span class="icon"> + </span> Add Contact </a>
         <a href="#"><span class="icon"> + </span> Add Contact </a>

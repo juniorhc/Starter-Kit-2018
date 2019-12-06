@@ -13,7 +13,8 @@ export default class ContentArea extends LitElement {
 
     static get properties() {
         return {
-            total: Object
+            total: Object,
+            popupOpen: Boolean
         }
     }
 
@@ -33,7 +34,7 @@ export default class ContentArea extends LitElement {
             }
         </style>
         <section id="content-area">
-            <form-popup></form-popup>
+            <form-popup .popupOpen="${this.popupOpen}"></form-popup>
             <favorites-list></favorites-list>
             <contacts-list></contacts-list>
         </section>

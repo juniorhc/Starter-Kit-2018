@@ -9,11 +9,13 @@ export default class FormPopup extends LitElement {
         this.total = {
             number: 0
         };
+        this.popupOpen = false;
     }
 
     static get properties() {
         return {
-            total: Object
+            total: Object,
+            popupOpen: Boolean
         }
     }
 
@@ -121,7 +123,7 @@ export default class FormPopup extends LitElement {
                 fill: white;
             }
         </style>
-        <section class="form-popup active">
+        <section class="form-popup ${(this.popupOpen) ? 'active' : ''}">
             <form>
 
                 <div class="closing-btn">
