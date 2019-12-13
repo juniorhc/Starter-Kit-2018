@@ -6,17 +6,44 @@ export default class ContactsList extends LitElement {
         this.total = {
             number: 0
         };
+        this.displayAllContacts = this.displayAllContacts.bind(this);
     }
 
     static get properties() {
         return {
-            total: Object
+            total: Object,
+            allContacts: Array
         }
     }
 
 
     firstUpdated(changedProperties) {
+    }
 
+    displayAllContacts(){
+        return this.allContacts.map((contact) => {
+            return html `
+                <div class="contact"> 
+                    <div class="user-img"></div>
+                    <div class="fullname"> 
+                        <span class="text">${contact.first_name} ${contact.last_name} </span>
+                        <span class="sub">Full Name</span>
+                    </div>
+                    <div class="number"> 
+                        <span class="text">${contact.phone_number}</span>
+                        <span class="sub">Phone Number</span>
+                    </div>
+                    <div class="state"> 
+                        <span class="text">${contact.state}</span>
+                        <span class="sub">State</span>
+                    </div>
+                    <div class="category"> 
+                        <span class="text">${contact.category}</span>
+                        <span class="sub">Category</span>
+                    </div>
+                </div>
+            `
+        })
     }
 
     render() {
@@ -82,45 +109,8 @@ export default class ContactsList extends LitElement {
 </style>
     <section class="contacts">
         <h2>Contacts</h2>
-        <div class="contact"> 
-            <div class="user-img"></div>
-            <div class="fullname"> 
-                <span class="text">Joe Santos Garcia 123</span>
-                <span class="sub">Full Name</span>
-            </div>
-            <div class="number"> 
-                <span class="text">123 - 456 - 789</span>
-                <span class="sub">Phone Number</span>
-            </div>
-            <div class="state"> 
-                <span class="text">NY</span>
-                <span class="sub">State</span>
-            </div>
-            <div class="category"> 
-                <span class="text">Family</span>
-                <span class="sub">Category</span>
-            </div>
-        </div>
+        ${this.displayAllContacts()}
 
-        <div class="contact"> 
-        <div class="user-img"></div>
-        <div class="fullname"> 
-            <span class="text">Joe Santos Garcia 123</span>
-            <span class="sub">Full Name</span>
-        </div>
-        <div class="number"> 
-            <span class="text">123 - 456 - 789</span>
-            <span class="sub">Phone Number</span>
-        </div>
-        <div class="state"> 
-            <span class="text">NY</span>
-            <span class="sub">State</span>
-        </div>
-        <div class="category"> 
-            <span class="text">Family</span>
-            <span class="sub">Category</span>
-        </div>
-    </div>
     </section>
 `
     }
