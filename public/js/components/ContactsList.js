@@ -12,16 +12,16 @@ export default class ContactsList extends LitElement {
     static get properties() {
         return {
             total: Object,
-            allContacts: Array
+            allContacts: Array,
+            deleteContact: Function
         }
     }
-
 
     firstUpdated(changedProperties) {
     }
 
     displayAllContacts(){
-        return this.allContacts.map((contact) => {
+        return this.allContacts.map((contact, index) => {
             return html `
                 <div class="contact"> 
                     <div class="user-img"></div>
@@ -41,6 +41,10 @@ export default class ContactsList extends LitElement {
                         <span class="text">${contact.category}</span>
                         <span class="sub">Category</span>
                     </div>
+                    <div class="delete-btn" @click="${this.deleteContact.bind(null, index)}"> 
+                        Delete
+                    </div>
+
                 </div>
             `
         })
@@ -68,6 +72,8 @@ export default class ContactsList extends LitElement {
             border-radius: 10px;
             transition: all .4s ease-in-out;
             cursor: pointer;
+            position: relative;
+            overflow: hidden;
         }
         .contact:hover{
             -webkit-box-shadow: 0px 4px 77px -17px rgba(0,0,0,0.36);
@@ -105,6 +111,28 @@ export default class ContactsList extends LitElement {
             font-size: 1.4rem;
             font-weight: 500;
             
+        }
+        .delete-btn{
+            position: absolute;
+            right: 0;
+            height: 100%;
+            padding: 20px;
+            color: white;
+            background: red;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            -webkit-border-top-right-radius: 10px;
+            -webkit-border-bottom-right-radius: 10px;
+            -moz-border-radius-topright: 10px;
+            -moz-border-radius-bottomright: 10px;
+            border-top-right-radius: 10px;
+            border-bottom-right-radius: 10px;
+            transform: translate3d(100%, 0, 0);
+            transition: all .4s ease-in-out;
+        }
+        .contact:hover .delete-btn{
+            transform: translate3d(0, 0, 0);
         }
 </style>
     <section class="contacts">

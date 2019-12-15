@@ -26,19 +26,19 @@ export default class FavoritesList extends LitElement {
                     <div class="card"> 
                         <div class="user-img"></div>
                         <div class="fullname"> 
-                            <span class="text">Joe Santos Garcia 123</span>
+                            <span class="text">${contact.first_name} ${contact.last_name}</span>
                             <span class="sub">Full Name</span>
                         </div>
                         <div class="number"> 
-                            <span class="text">123 - 456 - 789</span>
+                            <span class="text">${contact.phone_number}</span>
                             <span class="sub">Phone Number</span>
                         </div>
                         <div class="state"> 
-                            <span class="text">NY</span>
+                            <span class="text">${contact.state}</span>
                             <span class="sub">State</span>
                         </div>
                         <div class="category"> 
-                            <span class="text">Family</span>
+                            <span class="text">${contact.category}</span>
                             <span class="sub">Category</span>
                         </div>
                     </div>
